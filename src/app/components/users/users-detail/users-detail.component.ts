@@ -6,11 +6,11 @@ import { Profile } from 'src/app/components/profiles/profile';
 import { User } from '../user';
 
 @Component({
-  selector: 'app-users-add',
-  templateUrl: './users-add.component.html',
-  styleUrls: ['./users-add.component.css'],
+  selector: 'app-users-detail',
+  templateUrl: './users-detail.component.html',
+  styleUrls: ['./users-detail.component.css'],
 })
-export class UsersAddComponent implements OnInit {
+export class UsersDetailComponent implements OnInit {
   title = 'Novo Usuário'
   user: User = {
     id: 0,
@@ -18,7 +18,7 @@ export class UsersAddComponent implements OnInit {
     profiles: [],
   };
 
-  profiles: Profile[];
+  profiles: Profile[] = [];
 
   constructor(
     private usersService: UsersService,
@@ -104,6 +104,16 @@ export class UsersAddComponent implements OnInit {
         }
       );
     }
+  }
 
+  deleteUser() {
+    this.usersService.delete(this.user.id).subscribe(
+      (data) => {
+        this.router.navigate(['/']);
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
   }
 }

@@ -1,0 +1,19 @@
+<h2>{{ title }}</h2>
+<div>
+  <div class="submit-form">
+    <div class="form-group">
+      <label for="description">Descrição</label>
+      <input
+        type="text"
+        class="form-control"
+        id="description"
+        required
+        [(ngModel)]="profile.description"
+        name="description"
+      />
+    </div>
+
+    <button (click)="saveProfile()" class="btn btn-success">Salvar</button>
+    <button *ngIf="profile.id" (click)="deleteProfile()" class="btn btn-success">Excluir</button>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<h2>Perfis</h2>
+<nav>
+  <a routerLink="/profiles/add">Novo</a>
+</nav>
+
+<ul class="users">
+  <li *ngFor="let profile of profiles">
+    <a routerLink="/profiles/detail/{{ profile.id }}">
+      <span class="badge">{{ profile.id }}</span> {{ profile.description }}
+    </a>
+  </li>
+</ul>

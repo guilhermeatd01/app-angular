@@ -44,5 +44,6 @@
     </div>
 
     <button (click)="saveUser()" class="btn btn-success">Salvar</button>
+    <button *ngIf="user.id" (click)="deleteUser()" class="btn btn-success">Excluir</button>
   </div>
 </div>
