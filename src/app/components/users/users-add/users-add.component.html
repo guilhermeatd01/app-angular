@@ -1,0 +1,48 @@
+<h2>{{ title }}</h2>
+<div>
+  <div class="submit-form">
+    <div class="form-group">
+      <label for="name">Nome</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        required
+        [(ngModel)]="user.name"
+        name="name"
+      />
+    </div>
+
+    <div class="container">
+      <div class="flex">
+        <div class="form-group profiles">
+          <h4 class="title">Perfis Disponíveis</h4>
+          <ul class="profile">
+            <li
+              *ngFor="let profile of profiles; let i = index"
+              (click)="selectProfile(profile, i)"
+            >
+              <span class="badge">{{ profile.id }}</span>
+              {{ profile.description }}
+            </li>
+          </ul>
+        </div>
+
+        <div class="form-group profiles">
+          <h4 class="title">Perfis Selecionados</h4>
+          <ul class="profile">
+            <li
+              *ngFor="let profile of user.profiles; let i = index"
+              (click)="removeProfile(profile, i)"
+            >
+              <span class="badge">{{ profile.id }}</span>
+              {{ profile.description }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <button (click)="saveUser()" class="btn btn-success">Salvar</button>
+  </div>
+</div>
